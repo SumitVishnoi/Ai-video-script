@@ -16,7 +16,7 @@ const Nav = () => {
         { withCredentials: true }
       );
       console.log(response.data);
-      GetUser();
+      GetUser(null);
       navigate("/login");
     } catch (error) {
       console.log(error);
