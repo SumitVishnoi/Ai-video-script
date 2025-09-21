@@ -10,7 +10,7 @@ const app = express()
 const port = 3000
 connectDB()
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: ["http://localhost:5173", "https://ai-videoscript.netlify.app"],
   credentials: true
 }));
 app.use(express.json())
