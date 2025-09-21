@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { UserDataContext } from "../context/UserContext";
 import { AuthDataContext } from "../context/AuthContext";
+import { UserDataContext } from "../context/UserContext";
 
 const Nav = () => {
   const navigate = useNavigate();
-  const { GetUser } = useContext(UserDataContext);
+  const {setUserData} = useContext(UserDataContext)
   const {serverUrl} = useContext(AuthDataContext)
 
   const handleLogout = async () => {
@@ -16,6 +16,7 @@ const Nav = () => {
         { withCredentials: true }
       );
       console.log(response.data);
+      setUserData(null)
       navigate("/login");
     } catch (error) {
       console.log(error);

@@ -12,7 +12,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const { GetUser } = useContext(UserDataContext);
   const [loading, setLoading] = useState(false);
-  const {serverUrl} = useContext(AuthDataContext)
+  const { serverUrl } = useContext(AuthDataContext);
+  const [err, setErr] = useState("");
 
   const onSubmit = async (e) => {
     setLoading(true);
@@ -30,6 +31,9 @@ const Login = () => {
       navigate("/");
     } catch (error) {
       setLoading(false);
+      const message =
+      error.response?.data?.message || "Something went wrong. Try again.";
+      setErr(message);
       console.log(error);
     }
   };
@@ -100,6 +104,11 @@ const Login = () => {
                     </div>
                   </div>
                 </div>
+                {err && (
+                  <div className="text-red-700 flex justify-center items-center bg-amber-200">
+                    {err}
+                  </div>
+                )}
                 <button
                   type="submit"
                   className="w-full active:bg-[#064b3a] bg-primary-600 cursor-pointer hover:bg-primary-700 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 bg-[#27E0B3]"
