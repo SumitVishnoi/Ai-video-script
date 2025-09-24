@@ -25,7 +25,6 @@ const Login = () => {
         { email, password },
         { withCredentials: true }
       );
-      console.log(response.data);
       setLoading(false);
       GetUser();
       navigate("/");
@@ -34,7 +33,7 @@ const Login = () => {
       const message =
       error.response?.data?.message || "Something went wrong. Try again.";
       setErr(message);
-      console.log(error);
+      // console.log(error);
     }
   };
   return (

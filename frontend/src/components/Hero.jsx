@@ -29,7 +29,6 @@ Guidelines:
 `);
       const text = await result.response.text();
       setLoading(false);
-      console.log(text);
       setRes(text);
     } catch (error) {
       setLoading(false);

@@ -22,12 +22,11 @@ const Register = () => {
         { name, email, password },
         { withCredentials: true }
       );
-      console.log(response.data);
       setLoading(false);
       navigate("/");
     } catch (error) {
       setLoading(false);
-      console.log(error);
+      // console.log(error);
     }
   };
   return (

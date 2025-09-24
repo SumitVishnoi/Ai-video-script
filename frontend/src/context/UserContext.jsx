@@ -17,11 +17,10 @@ const UserContext = ({ children }) => {
         `${serverUrl}/api/auth/getuser`,
         { withCredentials: true }
       );
-      console.log(response.data);
       setUserData(response.data);
     } catch (error) {
       setUserData(null);
-      console.log(error);
+      // console.log(error);
     }
   };
 

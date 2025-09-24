@@ -15,7 +15,7 @@ const Nav = () => {
         `${serverUrl}/api/auth/logout`,
         { withCredentials: true }
       );
-      console.log(response.data);
+
       setUserData(null)
       navigate("/login");
     } catch (error) {
